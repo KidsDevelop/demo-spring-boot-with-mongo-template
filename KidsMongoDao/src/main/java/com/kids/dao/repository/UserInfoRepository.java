@@ -8,6 +8,8 @@ public interface UserInfoRepository {
 
     List<UserInfo> findAll();
 
-    UserInfo findByField(String field,Object value);
+    UserInfo findById(String id);
+
+    UserInfo findByUserName(String userName);
 
 }

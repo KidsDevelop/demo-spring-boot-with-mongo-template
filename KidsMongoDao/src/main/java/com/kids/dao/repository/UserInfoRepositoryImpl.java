@@ -21,13 +21,19 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
     }
 
     @Override
-    public UserInfo findByField(String field, Object value) {
+    public UserInfo findById(String id) {
+        return mongoTemplate.findById(id,UserInfo.class);
+    }
+
+    @Override
+    public UserInfo findByUserName(String userName) {
 
         Criteria criteria = new Criteria();
+        criteria.where("userName").is(userName);
 
         Query query = new Query();
         query.addCriteria(criteria);
 
-        return mongoTemplate.findById(query,UserInfo.class);
+        return mongoTemplate.findOne(query,UserInfo.class);
     }
 }

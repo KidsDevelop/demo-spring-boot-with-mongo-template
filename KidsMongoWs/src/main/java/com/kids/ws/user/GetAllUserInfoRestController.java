@@ -17,12 +17,12 @@ public class UserInfoRest {
     @Autowired
     private UserInfoRepository userInfoRepository;
 
-    @RequestMapping(value = "test-api",method = RequestMethod.GET)
+    @RequestMapping(value = "getAllUser",method = RequestMethod.GET)
     public ResponseEntity<List<UserInfo>> doProcess(){
 
         List<UserInfo> responseObj = userInfoRepository.findAll();
 
-        //List<UserInfo> responseObj = new ArrayList<>();
+        System.out.println("MONGO DB");
 
         return new ResponseEntity<>(responseObj,HttpStatus.OK);
     }

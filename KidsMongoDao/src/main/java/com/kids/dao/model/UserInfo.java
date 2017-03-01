@@ -1,23 +1,12 @@
 package com.kids.dao.model;
 
-import org.springframework.data.annotation.Id;
+public class UserInfo extends DefaultModel {
 
-public class UserInfo {
+    private static final long serialVersionUID = -5589233723445581039L;
 
-    @Id
-    private String id;
     private String userName;
-    private String firstName;
-    private String lastName;
-    private String gg;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    private String email;
+    private int age;
 
     public String getUserName() {
         return userName;
@@ -27,27 +16,20 @@ public class UserInfo {
         this.userName = userName;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getLastName() {
-        return lastName;
+    public int getAge() {
+        return age;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getGg() {
-        return gg;
-    }
-
-    public void setGg(String gg) {
-        this.gg = gg;
-    }
 }

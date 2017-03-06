@@ -4,10 +4,9 @@ import com.kids.KidsMongoDaoApplication;
 import com.kids.dao.model.ErrorInfo;
 import com.kids.dao.repository.ErrorInfoRepository;
 import org.joda.time.LocalDateTime;
-import org.junit.FixMethodOrder;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -18,29 +17,34 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KidsMongoDaoApplication.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ErrorInfoRepositoryImplTest {
 
     @Autowired
     public ErrorInfoRepository errorInfoRepository;
 
+    @Before
+    public void setUp(){
+
+    }
+
     @Test
-    public void case_01_findAll() {
+    public void findAll() {
         assertEquals(3,errorInfoRepository.findAll().size());
     }
 
     @Test
-    public void case_02_findByErrorCode_not_found_data() {
+    public void findByErrorCode_not_found_data() {
         assertNull(errorInfoRepository.findByErrorCode("10009"));
     }
 
     @Test
-    public void case_03_findByErrorCode_found_data() {
+    public void findByErrorCode_found_data() {
         assertEquals("10001",errorInfoRepository.findByErrorCode("10001").getErrorCode());
     }
 
     @Test
-    public void case_04_update_success() {
+    public void update_success() {
 
         ErrorInfo errorInfo = errorInfoRepository.findByErrorCode("10001");
 
@@ -61,7 +65,7 @@ public class ErrorInfoRepositoryImplTest {
     }
 
     @Test
-    public void case_05_save_success() {
+    public void save_success() {
 
         int before = errorInfoRepository.findAll().size();
 
@@ -81,7 +85,7 @@ public class ErrorInfoRepositoryImplTest {
     }
 
     @Test(expected = Exception.class)
-    public void case_06_save_fail_with_duplicates_key() {
+    public void save_fail_with_duplicates_key() {
 
         int before = errorInfoRepository.findAll().size();
 
@@ -101,7 +105,7 @@ public class ErrorInfoRepositoryImplTest {
     }
 
     @Test
-    public void case_07_delete_success() {
+    public void delete_success() {
 
         int before = errorInfoRepository.findAll().size();
 
@@ -115,7 +119,7 @@ public class ErrorInfoRepositoryImplTest {
     }
 
     @Test
-    public void case_08_delete_fail_with_null_obj() {
+    public void delete_fail_with_null_obj() {
         errorInfoRepository.delete(null);
     }
 

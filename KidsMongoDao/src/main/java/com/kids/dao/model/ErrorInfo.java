@@ -1,6 +1,5 @@
 package com.kids.dao.model;
 
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -8,7 +7,7 @@ public class ErrorInfo extends DefaultModel {
 
     private static final long serialVersionUID = 5300770146236915183L;
 
-    @Indexed(unique = true)
+    //@Indexed(unique = true)
     private String errorCode;
     private String errorMessageTh;
     private String errorMessageEn;

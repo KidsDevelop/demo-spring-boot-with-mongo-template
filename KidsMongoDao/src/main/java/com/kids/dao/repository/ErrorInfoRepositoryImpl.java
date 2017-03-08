@@ -1,8 +1,6 @@
 package com.kids.dao.repository;
 
 import com.kids.dao.model.ErrorInfo;
-import com.mongodb.WriteResult;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -59,8 +57,20 @@ public class ErrorInfoRepositoryImpl implements ErrorInfoRepository {
     }
 
     @Override
+    public void saveAll(List<ErrorInfo> errorInfoList) {
+        mongoTemplate.insert(errorInfoList);
+    }
+
+    @Override
     public void delete(ErrorInfo errorInfo) {
         mongoTemplate.remove(errorInfo);
     }
+
+    @Override
+    public void deleteAll() {
+        Query query = new Query();
+        mongoTemplate.remove(query,ErrorInfo.class);
+    }
+
 
 }

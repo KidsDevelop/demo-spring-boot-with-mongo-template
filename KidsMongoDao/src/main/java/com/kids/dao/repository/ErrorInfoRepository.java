@@ -15,6 +15,10 @@ public interface ErrorInfoRepository {
 
     void save(ErrorInfo errorInfo);
 
+    void saveAll(List<ErrorInfo> errorInfoList);
+
     void delete(ErrorInfo errorInfo);
+
+    void deleteAll();
 
 }

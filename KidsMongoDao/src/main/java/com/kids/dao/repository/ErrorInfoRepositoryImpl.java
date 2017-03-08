@@ -58,7 +58,7 @@ public class ErrorInfoRepositoryImpl implements ErrorInfoRepository {
 
     @Override
     public void saveAll(List<ErrorInfo> errorInfoList) {
-        mongoTemplate.insert(errorInfoList);
+        mongoTemplate.insertAll(errorInfoList);
     }
 
     @Override

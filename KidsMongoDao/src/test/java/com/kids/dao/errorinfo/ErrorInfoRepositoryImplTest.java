@@ -121,7 +121,7 @@ public class ErrorInfoRepositoryImplTest {
         int before = errorInfoRepository.findAll().size();
 
         ErrorInfo errorInfo = new ErrorInfo();
-        errorInfo.setErrorCode("10003");
+        errorInfo.setErrorCode("10002");
         errorInfo.setErrorMessageEn("User role not authorized");
         errorInfo.setErrorMessageTh("กลุ่มผู้ใช้งานไม่มีสิทธิใช้งานบริการ");
         errorInfo.setCreateDate(LocalDateTime.now().toDate());
@@ -140,7 +140,7 @@ public class ErrorInfoRepositoryImplTest {
 
         int before = errorInfoRepository.findAll().size();
 
-        ErrorInfo errorInfo = errorInfoRepository.findByErrorCode("10003");
+        ErrorInfo errorInfo = errorInfoRepository.findByErrorCode("10002");
 
         errorInfoRepository.delete(errorInfo);
 

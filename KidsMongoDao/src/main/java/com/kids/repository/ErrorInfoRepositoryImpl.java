@@ -1,6 +1,6 @@
-package com.kids.dao.repository;
+package com.kids.repository;
 
-import com.kids.dao.model.ErrorInfo;
+import com.kids.model.ErrorInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;

@@ -1,4 +1,4 @@
-package com.kids.dao.configuration;
+package com.kids.configuration;
 
 public final class MongoDBConstant {
 

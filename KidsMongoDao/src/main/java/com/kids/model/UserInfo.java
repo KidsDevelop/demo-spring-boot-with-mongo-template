@@ -1,4 +1,4 @@
-package com.kids.dao.model;
+package com.kids.model;
 
 public class UserInfo extends DefaultModel {
 

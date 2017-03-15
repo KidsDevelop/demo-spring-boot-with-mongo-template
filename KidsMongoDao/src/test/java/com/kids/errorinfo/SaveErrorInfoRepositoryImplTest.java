@@ -18,12 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KidsMongoDaoApplication.class)
 @Category(Iteration001.class)
-public class SearchErrorInfoRepositoryImplTest {
+public class SaveErrorInfoRepositoryImplTest {
 
     @Autowired
     public ErrorInfoRepository errorInfoRepository;
@@ -67,18 +66,43 @@ public class SearchErrorInfoRepositoryImplTest {
     }
 
     @Test
-    public void findAll() {
-        assertEquals(3,errorInfoRepository.findAll().size());
+    public void save_success() {
+
+        int before = errorInfoRepository.findAll().size();
+
+        ErrorInfo errorInfo = new ErrorInfo();
+        errorInfo.setErrorCode("10003");
+        errorInfo.setErrorMessageEn("User role not authorized");
+        errorInfo.setErrorMessageTh("กลุ่มผู้ใช้งานไม่มีสิทธิใช้งานบริการ");
+        errorInfo.setCreateDate(LocalDateTime.now().toDate());
+        errorInfo.setCreateBy("Admin");
+
+        errorInfoRepository.save(errorInfo);
+
+        int after = errorInfoRepository.findAll().size();
+
+        assertEquals(before + 1,after);
+
     }
 
-    @Test
-    public void findByErrorCode_not_found_data() {
-        assertNull(errorInfoRepository.findByErrorCode("10009"));
-    }
+    @Test(expected = Exception.class)
+    public void save_fail_with_duplicates_key() {
 
-    @Test
-    public void findByErrorCode_found_data() {
-        assertEquals("10001",errorInfoRepository.findByErrorCode("10001").getErrorCode());
+        int before = errorInfoRepository.findAll().size();
+
+        ErrorInfo errorInfo = new ErrorInfo();
+        errorInfo.setErrorCode("10002");
+        errorInfo.setErrorMessageEn("User role not authorized");
+        errorInfo.setErrorMessageTh("กลุ่มผู้ใช้งานไม่มีสิทธิใช้งานบริการ");
+        errorInfo.setCreateDate(LocalDateTime.now().toDate());
+        errorInfo.setCreateBy("Admin");
+
+        errorInfoRepository.save(errorInfo);
+
+        int after = errorInfoRepository.findAll().size();
+
+        assertEquals(before + 1,after);
+
     }
 
 }

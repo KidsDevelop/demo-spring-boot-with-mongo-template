@@ -1,7 +1,7 @@
 package com.kids.ws.errorinfo;
 
-import com.kids.dao.model.ErrorInfo;
-import com.kids.dao.repository.ErrorInfoRepository;
+import com.kids.model.ErrorInfo;
+import com.kids.repository.ErrorInfoRepository;
 import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

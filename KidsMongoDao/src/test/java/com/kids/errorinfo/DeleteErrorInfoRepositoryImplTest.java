@@ -18,12 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KidsMongoDaoApplication.class)
 @Category(Iteration001.class)
-public class SearchErrorInfoRepositoryImplTest {
+public class DeleteErrorInfoRepositoryImplTest {
 
     @Autowired
     public ErrorInfoRepository errorInfoRepository;
@@ -67,18 +66,31 @@ public class SearchErrorInfoRepositoryImplTest {
     }
 
     @Test
-    public void findAll() {
-        assertEquals(3,errorInfoRepository.findAll().size());
+    public void delete_success() {
+
+        int before = errorInfoRepository.findAll().size();
+
+        ErrorInfo errorInfo = errorInfoRepository.findByErrorCode("10002");
+
+        errorInfoRepository.delete(errorInfo);
+
+        int after = errorInfoRepository.findAll().size();
+
+        assertEquals(before - 1,after);
+
     }
 
     @Test
-    public void findByErrorCode_not_found_data() {
-        assertNull(errorInfoRepository.findByErrorCode("10009"));
-    }
+    public void delete_fail_with_null_obj() {
 
-    @Test
-    public void findByErrorCode_found_data() {
-        assertEquals("10001",errorInfoRepository.findByErrorCode("10001").getErrorCode());
+        int before = errorInfoRepository.findAll().size();
+
+        errorInfoRepository.delete(null);
+
+        int after = errorInfoRepository.findAll().size();
+
+        assertEquals(before,after);
+
     }
 
 }

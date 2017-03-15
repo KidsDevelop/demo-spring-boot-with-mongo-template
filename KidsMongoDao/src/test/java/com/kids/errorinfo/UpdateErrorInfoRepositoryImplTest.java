@@ -15,15 +15,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertNotEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KidsMongoDaoApplication.class)
 @Category(Iteration001.class)
-public class SearchErrorInfoRepositoryImplTest {
+public class UpdateErrorInfoRepositoryImplTest {
 
     @Autowired
     public ErrorInfoRepository errorInfoRepository;
@@ -67,18 +68,24 @@ public class SearchErrorInfoRepositoryImplTest {
     }
 
     @Test
-    public void findAll() {
-        assertEquals(3,errorInfoRepository.findAll().size());
-    }
+    public void update_success() {
 
-    @Test
-    public void findByErrorCode_not_found_data() {
-        assertNull(errorInfoRepository.findByErrorCode("10009"));
-    }
+        ErrorInfo errorInfo = errorInfoRepository.findByErrorCode("10001");
 
-    @Test
-    public void findByErrorCode_found_data() {
-        assertEquals("10001",errorInfoRepository.findByErrorCode("10001").getErrorCode());
+        Date oldDate = errorInfo.getModifyDate();
+        String oldModifyBy = errorInfo.getModifyBy();
+        errorInfo.setErrorMessageTh("ทดสอบ");
+        errorInfo.setErrorMessageEn("test");
+        errorInfo.setModifyBy("Admin");
+        errorInfo.setModifyDate(LocalDateTime.now().toDate());
+
+        ErrorInfo result = errorInfoRepository.update(errorInfo);
+
+        assertEquals(result.getErrorMessageEn(),errorInfo.getErrorMessageEn());
+        assertEquals(result.getErrorMessageTh(),errorInfo.getErrorMessageTh());
+        assertNotEquals(result.getModifyDate(),oldDate);
+        assertNotEquals(result.getModifyBy(),oldModifyBy);
+
     }
 
 }

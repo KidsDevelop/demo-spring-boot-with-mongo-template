@@ -1,4 +1,4 @@
-package com.kids.dao.configuration;
+package com.kids.configuration;
 
 import com.mongodb.MongoClient;
 import org.springframework.beans.factory.annotation.Autowired;

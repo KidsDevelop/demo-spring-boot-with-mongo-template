@@ -1,4 +1,4 @@
-package com.kids.dao.model;
+package com.kids.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

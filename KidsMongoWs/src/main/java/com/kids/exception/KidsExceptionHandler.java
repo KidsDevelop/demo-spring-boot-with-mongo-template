@@ -1,7 +1,7 @@
 /*
 package com.kids.exception;
 
-import com.kids.dao.model.DefaultResponse;
+import DefaultResponse;
 import com.kids.service.exception.BusinessException;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;

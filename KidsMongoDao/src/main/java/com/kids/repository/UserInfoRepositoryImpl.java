@@ -1,6 +1,6 @@
-package com.kids.dao.repository;
+package com.kids.repository;
 
-import com.kids.dao.model.UserInfo;
+import com.kids.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

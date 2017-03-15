@@ -1,7 +1,6 @@
-package com.kids.dao.repository;
+package com.kids.repository;
 
-import com.kids.dao.model.ErrorInfo;
-import com.mongodb.WriteResult;
+import com.kids.model.ErrorInfo;
 
 import java.util.List;
 

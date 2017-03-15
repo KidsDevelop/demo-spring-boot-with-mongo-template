@@ -1,8 +1,8 @@
 package com.kids.ws.user;
 
 import com.kids.bean.user.GetUserInfoRequest;
-import com.kids.dao.model.UserInfo;
-import com.kids.dao.repository.UserInfoRepository;
+import com.kids.model.UserInfo;
+import com.kids.repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

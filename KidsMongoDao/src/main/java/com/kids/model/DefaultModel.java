@@ -1,4 +1,4 @@
-package com.kids.dao.model;
+package com.kids.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;

@@ -28,6 +28,7 @@ public class SaveErrorInfoRestController {
 
         errorInfoRepository.save(errorInfo);*/
 
+
         ErrorInfo errorInfo = new ErrorInfo();
         errorInfo.setId("58b407d7061b9a22745a87cf");
         errorInfo.setErrorCode("1222");

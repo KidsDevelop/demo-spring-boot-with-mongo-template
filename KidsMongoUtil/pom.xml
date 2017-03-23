@@ -4,18 +4,15 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kids</groupId>
-    <artifactId>KidsMongoUtil</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <parent>
+        <groupId>com.kids</groupId>
+        <artifactId>com.kids</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
+    <artifactId>KidsMongoUtil</artifactId>
     <name>KidsMongoUtil</name>
     <description>Kids Mongo Util Demo</description>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.1.RELEASE</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,14 +37,24 @@
         </dependency>
     </dependencies>
 
-    <!--<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
         </plugins>
-    </build>-->
+    </build>
 
 
 </project>

@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>kids-mongo-restful</groupId>
-    <artifactId>kids-mongo-restful</artifactId>
+    <groupId>com.kids</groupId>
+    <artifactId>com.kids</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
@@ -17,5 +17,11 @@
         <module>KidsMongoService</module>
         <module>KidsMongoWs</module>
     </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.1.RELEASE</version>
+    </parent>
 
 </project>

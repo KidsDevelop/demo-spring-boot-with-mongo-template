@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>kids-mongo-restful</name>
-    <description>Kids Mongo With Restful Demo</description>
+    <description>Kids Mongo With Restful Demo Naja</description>
 
     <modules>
         <module>KidsMongoUtil</module>

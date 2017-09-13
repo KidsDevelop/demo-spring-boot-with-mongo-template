@@ -1,2 +1,2 @@
 # demo-spring-boot-with-mongo-template
-Spring boot with Mongo
+Spring boot with Mongo GG
